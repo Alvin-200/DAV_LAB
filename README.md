@@ -8,12 +8,13 @@
 [![NumPy](https://img.shields.io/badge/NumPy-2.2.6-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org)
 [![Pandas](https://img.shields.io/badge/Pandas-2.3.3-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org)
 [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.3-11557C?style=for-the-badge)](https://matplotlib.org)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.6.1-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)](https://scikit-learn.org)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Lab_4.5.1-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org)
 
 ---
 
 > _A comprehensive collection of hands-on laboratory experiments exploring data analysis,  
-> manipulation, and visualization using Python's scientific computing ecosystem._
+> statistical inference, predictive modeling, hypothesis testing, and visualization using Python's scientific computing ecosystem._
 
 </div>
 
@@ -151,6 +152,15 @@ DAV_LAB/
 | 5 | **Descriptive Analytics (Iris)** | Exploring statistics, distributions, boxplots, and pairplots on Iris dataset | `pandas` `seaborn` `matplotlib` |
 | 6 | **Univariate Statistical Analysis** | Calculating Mean, Median, Mode, Variance, Std, Skewness, Kurtosis on Diabetes datasets | `pandas` `numpy` `scipy` |
 | 7 | **Bivariate Analysis (Linear & Logistic Regression)** | Linear Regression (Glucose vs BMI) & Logistic Regression (Predicting Diabetes) | `pandas` `numpy` `scikit-learn` `matplotlib` |
+| 8 | **Multiple Linear Regression Analysis** | Multiple independent variables (Glucose, BP, Age) predicting BMI with $R^2$ evaluation | `pandas` `numpy` `scikit-learn` `matplotlib` |
+| 9 | **Comparative Analysis of Datasets** | Systematic comparison of statistical distributions & predictive models across cohorts | `pandas` `numpy` `scikit-learn` `matplotlib` |
+| 10 | **Probability Distributions & Normal Curves** | Empirical distribution modeling & Gaussian PDF curve fitting on continuous features | `pandas` `numpy` `scipy` `matplotlib` `seaborn` |
+| 11 | **Hypothesis Testing (One-Sample Z-Test)** | One-Sample Z-Test for Population Mean with standard normal rejection threshold plotting | `statsmodels` `scipy` `matplotlib` `pandas` |
+| 12 | **Hypothesis Testing (Two-Sample T-Test)** | Independent two-sample Welch t-test comparing Diabetic vs Non-Diabetic groups | `scipy` `pandas` `matplotlib` `seaborn` |
+| 13 | **Analysis of Variance (One-Way ANOVA)** | Evaluating statistical variance across age groups using One-Way ANOVA F-test | `scipy` `pandas` `matplotlib` `seaborn` |
+| 14 | **Linear Model Error Diagnostics** | Comprehensive error metrics ($R^2$, MSE, RMSE, MAE) and residual distribution diagnostics | `scikit-learn` `pandas` `matplotlib` `seaborn` |
+| 15 | **Classification Diagnostics (Logistic Regression)** | Confusion Matrix, Precision, Recall, F1-Score, and ROC-AUC curve diagnostics | `scikit-learn` `pandas` `matplotlib` `seaborn` |
+| 16 | **Time Series Analysis & ARIMA Forecasting** | Seasonal decomposition (Trend, Seasonality, Residuals) and ARIMA time-series forecasting | `statsmodels` `pandas` `matplotlib` |
 
 ---
 
@@ -170,11 +180,9 @@ Verify the installation and versions of all essential data science libraries req
 | Pandas | ✅ Installed | `2.3.3` |
 | Matplotlib | ✅ Installed | `3.10.3` |
 | JupyterLab | ✅ Installed | `4.5.1` |
-| Seaborn | ❌ Not Installed | — |
-| SciPy | ❌ Not Installed | — |
-| Plotly | ❌ Not Installed | — |
-| Bokeh | ❌ Not Installed | — |
-| Statsmodels | ❌ Not Installed | — |
+| Scikit-Learn | ✅ Installed | `1.6.1` |
+| SciPy | ✅ Installed | `1.18.0` |
+| Statsmodels | ✅ Installed | `0.14.6` |
 
 ### 📂 Files
 - [`exp1/exp1.ipynb`](exp1/exp1.ipynb) — Jupyter Notebook
@@ -202,14 +210,6 @@ Learn and demonstrate core NumPy operations for numerical computing.
 | 6 | Comparison & Masking | `>`, boolean indexing, fancy indexing |
 | 7 | Reshaping & Structured Arrays | `.reshape()`, structured `dtype` |
 
-### 💡 Sample Output
-```python
->>> arr_a = np.array([10, 20, 30])
->>> arr_b = np.array([1, 2, 3])
->>> print("Addition:", arr_a + arr_b)
-Addition: [11 22 33]
-```
-
 ### 📂 Files
 - [`exp2/exp2.ipynb`](exp2/exp2.ipynb) — Jupyter Notebook (with cell outputs)
 - [`exp2/exp2.py`](exp2/exp2.py) — Python Script
@@ -234,16 +234,6 @@ Perform real-world data analysis workflows using Pandas DataFrames.
 | 4 | Filtering & Groupby | Boolean conditions, `.groupby().mean()` |
 | 5 | Sorting & Boolean Masking | `.sort_values()`, `.median()` masking |
 | 6 | Export & Aggregations | `.to_csv()`, `.sum()`, `.mean()`, `.std()` |
-
-### 💡 Sample Output
-```python
->>> grouped = df.groupby('category_column')['numeric_column'].mean()
->>> print(grouped)
-category_column
-A    180.0
-B    237.5
-Name: numeric_column, dtype: float64
-```
 
 ### 📂 Files
 - [`exp3/exp3.ipynb`](exp3/exp3.ipynb) — Jupyter Notebook (with cell outputs)
@@ -270,17 +260,6 @@ Read and process data from various sources, including CSV text files, Excel spre
 | 4 | Preview Datasets | `df.head()` |
 | 5 | Handle Missing Values | `.ffill()`, `.bfill()`, `.dropna()` |
 | 6 | Export Processed Data | `.to_csv('processed_text.csv')`, `.to_excel('processed_excel.xlsx')` |
-
-### 💡 Sample Code & Output
-```python
-import pandas as pd
-
-text_df = pd.read_csv('Google_data (2b.c1).csv')
-excel_df = pd.read_excel('data (2c2).xlsx', sheet_name='Sheet1')
-web_df = pd.read_csv('https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv')
-
-print(text_df.head(), "\n", excel_df.head(), "\n", web_df.head())
-```
 
 ### 📂 Files
 - [`exp4/exp4.ipynb`](exp4/exp4.ipynb) — Jupyter Notebook (with cell outputs)
@@ -311,20 +290,6 @@ Perform descriptive analytics, summary statistics, univariate, and bivariate vis
 | 5 | Boxplot Analysis | `sns.boxplot(data=df, x='species', y='sepal length (cm)')` |
 | 6 | Pair Plot Visualizations | `sns.pairplot(df, hue='species')` |
 
-### 💡 Sample Code & Output
-```python
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-df = pd.read_csv('iris_dataset(2d).csv')
-print(df.info())
-print(df.describe())
-
-sns.boxplot(data=df, x='species', y='sepal length (cm)')
-sns.pairplot(df, hue='species')
-```
-
 ### 📂 Files
 - [`exp5/exp5.ipynb`](exp5/exp5.ipynb) — Jupyter Notebook (with cell outputs)
 - [`exp5/exp5.py`](exp5/exp5.py) — Python Script
@@ -351,28 +316,7 @@ Perform univariate statistical analysis on the UCI Diabetes and Pima Indians Dia
 | 2 | Central Tendency | `np.mean()`, `np.median()`, `df[col].mode()[0]` |
 | 3 | Dispersion | `np.var(ddof=1)`, `np.std(ddof=1)` |
 | 4 | Shape & Tail Metrics | `scipy.stats.skew()`, `scipy.stats.kurtosis()` |
-| 5 | Automated Analysis Pipeline | Custom function `univariate_analysis(df, columns)` |
-
-### 💡 Sample Code & Output
-```python
-import pandas as pd
-import numpy as np
-from scipy.stats import skew, kurtosis
-
-def univariate_analysis(df, columns):
-    stats = {}
-    for col in columns:
-        stats[col] = {
-            "Mean": np.mean(df[col]),
-            "Median": np.median(df[col]),
-            "Mode": df[col].mode()[0],
-            "Variance": np.var(df[col], ddof=1),
-            "Standard Deviation": np.std(df[col], ddof=1),
-            "Skewness": skew(df[col]),
-            "Kurtosis": kurtosis(df[col])
-        }
-    return pd.DataFrame(stats).T
-```
+| 5 | Automated Pipeline | Custom function `univariate_analysis(df, columns)` |
 
 ### 📂 Files
 - [`exp6/exp6.ipynb`](exp6/exp6.ipynb) — Jupyter Notebook (with cell outputs)
@@ -400,24 +344,6 @@ Perform bivariate analysis on the UCI Diabetes Dataset and Pima Indians Diabetes
 | 4 | Logistic Regression | `train_test_split()`, `LogisticRegression()`, `accuracy_score()` |
 | 5 | Performance Comparison | Evaluating model performance across dataset variations |
 
-### 💡 Sample Code & Output
-```python
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression, LogisticRegression
-from sklearn.metrics import r2_score, accuracy_score
-
-# 1. Linear Regression (Glucose vs. BMI)
-model_lin = LinearRegression().fit(df[['Glucose']], df['BMI'])
-y_pred = model_lin.predict(df[['Glucose']])
-print("R2 Score:", r2_score(df['BMI'], y_pred))
-
-# 2. Logistic Regression (Outcome prediction)
-X_train, X_test, y_train, y_test = train_test_split(df[['Glucose', 'BloodPressure', 'BMI', 'Age']], df['Outcome'], test_size=0.2, random_state=42)
-model_log = LogisticRegression().fit(X_train, y_train)
-print("Accuracy Score:", accuracy_score(y_test, model_log.predict(X_test)))
-```
-
 ### 📂 Files
 - [`exp7/exp7.ipynb`](exp7/exp7.ipynb) — Jupyter Notebook (with cell outputs & plots)
 - [`exp7/exp7.py`](exp7/exp7.py) — Python Script
@@ -425,6 +351,241 @@ print("Accuracy Score:", accuracy_score(y_test, model_log.predict(X_test)))
 - [`exp7/pima_diabetes.csv`](exp7/pima_diabetes.csv) — Pima Indians Diabetes Dataset
 - [`exp7/uci_linear_regression.png`](exp7/uci_linear_regression.png) — UCI Scatter Plot & Linear Fit
 - [`exp7/pima_linear_regression.png`](exp7/pima_linear_regression.png) — Pima Scatter Plot & Linear Fit
+
+</details>
+
+---
+
+<details>
+<summary><strong>🔬 Experiment 8 — Multiple Linear Regression Analysis</strong></summary>
+
+### 📌 Objective
+Perform Multiple Linear Regression predicting a continuous target variable (`BMI`) using multiple independent predictor variables (`Glucose`, `BloodPressure`, and `Age`), and evaluate using $R^2$ score and regression diagnostics.
+
+### 🧩 Topics Covered
+
+| Section | Topic | Key Functions / Metrics |
+|:-------:|:------|:-----------------------|
+| 1 | Feature Selection | Multidimensional feature matrix `['Glucose', 'BloodPressure', 'Age']` |
+| 2 | Train-Test Split | `train_test_split(X, y, test_size=0.2, random_state=42)` |
+| 3 | Model Training | `LinearRegression().fit(X_train, y_train)` |
+| 4 | Coefficient Analysis | Intercept $\beta_0$ and feature coefficients $\beta_1, \beta_2, \beta_3$ |
+| 5 | Evaluation & Plot | $R^2$ score calculation, Actual vs. Predicted scatter plot with reference fit line |
+
+### 📂 Files
+- [`exp8/exp8.ipynb`](exp8/exp8.ipynb) — Jupyter Notebook (with cell outputs & plots)
+- [`exp8/exp8.py`](exp8/exp8.py) — Python Script
+- [`exp8/uci_diabetes.csv`](exp8/uci_diabetes.csv) — UCI Diabetes Dataset
+- [`exp8/pima_diabetes.csv`](exp8/pima_diabetes.csv) — Pima Indians Diabetes Dataset
+- [`exp8/uci_multiple_regression.png`](exp8/uci_multiple_regression.png) — UCI Actual vs Predicted Plot
+- [`exp8/pima_multiple_regression.png`](exp8/pima_multiple_regression.png) — Pima Actual vs Predicted Plot
+
+</details>
+
+---
+
+<details>
+<summary><strong>🔬 Experiment 9 — Comparative Analysis of Statistical & Predictive Models</strong></summary>
+
+### 📌 Objective
+Conduct a cross-dataset benchmarking study comparing univariate statistical metrics and predictive model efficacy (Linear vs. Logistic Regression) across dataset variants.
+
+### 🧩 Topics Covered
+
+| Section | Topic | Key Functions / Metrics |
+|:-------:|:------|:-----------------------|
+| 1 | Summary Statistics | `.describe().T` on all numerical features |
+| 2 | Linear Regression Benchmark | Comparative $R^2$ evaluation on continuous feature predictions |
+| 3 | Classification Benchmark | Comparative classification Accuracy score on diabetes prediction |
+| 4 | Visualization | Dual-panel comparative bar charts for $R^2$ and Accuracy |
+
+### 📂 Files
+- [`exp9/exp9.ipynb`](exp9/exp9.ipynb) — Jupyter Notebook (with cell outputs & plots)
+- [`exp9/exp9.py`](exp9/exp9.py) — Python Script
+- [`exp9/uci_diabetes.csv`](exp9/uci_diabetes.csv) — UCI Diabetes Dataset
+- [`exp9/pima_diabetes.csv`](exp9/pima_diabetes.csv) — Pima Indians Diabetes Dataset
+- [`exp9/model_comparison.png`](exp9/model_comparison.png) — Comparative Model Benchmark Chart
+
+</details>
+
+---
+
+<details>
+<summary><strong>🔬 Experiment 10 — Probability Distributions & Normal Curve Fitting</strong></summary>
+
+### 📌 Objective
+Fit theoretical Normal (Gaussian) Probability Density Function (PDF) curves over continuous health distributions to analyze empirical normality.
+
+### 🧩 Topics Covered
+
+| Section | Topic | Key Functions / Metrics |
+|:-------:|:------|:-----------------------|
+| 1 | Parametric Estimation | Calculating sample mean $\mu$ and standard deviation $\sigma$ |
+| 2 | Normal PDF Modeling | `scipy.stats.norm.pdf(x, mu, std)` |
+| 3 | Density Histograms | `sns.histplot(stat='density', kde=True)` |
+| 4 | Multi-Feature Diagnostics | Multi-panel grid comparing Glucose, BloodPressure, BMI, and Age |
+
+### 📂 Files
+- [`exp10/exp10.ipynb`](exp10/exp10.ipynb) — Jupyter Notebook (with cell outputs & plots)
+- [`exp10/exp10.py`](exp10/exp10.py) — Python Script
+- [`exp10/uci_diabetes.csv`](exp10/uci_diabetes.csv) — UCI Diabetes Dataset
+- [`exp10/normal_curve_glucose.png`](exp10/normal_curve_glucose.png) — Glucose Normal Curve Fit
+- [`exp10/normal_curves_features.png`](exp10/normal_curves_features.png) — Multi-Feature Normal Curves
+
+</details>
+
+---
+
+<details>
+<summary><strong>🔬 Experiment 11 — Hypothesis Testing: One-Sample Z-Test</strong></summary>
+
+### 📌 Objective
+Conduct a formal One-Sample Z-Test testing if sample mean Glucose differs significantly from a hypothesized population mean ($\mu_0 = 100$) and map critical rejection thresholds.
+
+### 🧩 Topics Covered
+
+| Section | Topic | Key Functions / Metrics |
+|:-------:|:------|:-----------------------|
+| 1 | Hypothesis Formulation | $H_0: \mu = 100$ vs. $H_1: \mu \neq 100$ |
+| 2 | Z-Test Execution | `statsmodels.stats.weightstats.ztest(df['Glucose'], value=100)` |
+| 3 | Critical Values | Calculating two-tailed rejection thresholds ($Z_{\text{crit}} = \pm 1.96$) |
+| 4 | Rejection Region Mapping | Visualizing Gaussian bell curve with shaded critical rejection regions |
+
+### 📂 Files
+- [`exp11/exp11.ipynb`](exp11/exp11.ipynb) — Jupyter Notebook (with cell outputs & plots)
+- [`exp11/exp11.py`](exp11/exp11.py) — Python Script
+- [`exp11/uci_diabetes.csv`](exp11/uci_diabetes.csv) — UCI Diabetes Dataset
+- [`exp11/z_test_plot.png`](exp11/z_test_plot.png) — Z-Test Standard Normal Rejection Plot
+
+</details>
+
+---
+
+<details>
+<summary><strong>🔬 Experiment 12 — Hypothesis Testing: Independent Two-Sample T-Test</strong></summary>
+
+### 📌 Objective
+Execute Independent Two-Sample T-Tests (Welch's t-test) to test for statistically significant mean differences between Diabetic and Non-Diabetic patient cohorts.
+
+### 🧩 Topics Covered
+
+| Section | Topic | Key Functions / Metrics |
+|:-------:|:------|:-----------------------|
+| 1 | Cohort Partitioning | Subsetting data by class label (`Outcome = 0` vs `Outcome = 1`) |
+| 2 | T-Test Execution | `scipy.stats.ttest_ind(group0, group1, equal_var=False)` |
+| 3 | Hypothesis Interpretation | Analyzing t-statistic and p-value against $\alpha = 0.05$ |
+| 4 | Visual Distribution Plots | Two-sample comparative boxplots across datasets |
+
+### 📂 Files
+- [`exp12/exp12.ipynb`](exp12/exp12.ipynb) — Jupyter Notebook (with cell outputs & plots)
+- [`exp12/exp12.py`](exp12/exp12.py) — Python Script
+- [`exp12/uci_diabetes.csv`](exp12/uci_diabetes.csv) — UCI Diabetes Dataset
+- [`exp12/pima_diabetes.csv`](exp12/pima_diabetes.csv) — Pima Indians Diabetes Dataset
+- [`exp12/t_test_comparison.png`](exp12/t_test_comparison.png) — T-Test Group Comparison Boxplot
+
+</details>
+
+---
+
+<details>
+<summary><strong>🔬 Experiment 13 — Analysis of Variance (One-Way ANOVA)</strong></summary>
+
+### 📌 Objective
+Perform One-Way ANOVA across multiple categorical age brackets to evaluate between-group versus within-group variance.
+
+### 🧩 Topics Covered
+
+| Section | Topic | Key Functions / Metrics |
+|:-------:|:------|:-----------------------|
+| 1 | Demographic Binning | Categorizing Age into Young (20-30), Middle-Aged (31-50), and Senior (51+) |
+| 2 | ANOVA Test | `scipy.stats.f_oneway(*groups)` |
+| 3 | Variance Analysis | Computing F-statistic and assessing statistical significance |
+| 4 | Visualization | Cohort-level boxplots across demographic tiers |
+
+### 📂 Files
+- [`exp13/exp13.ipynb`](exp13/exp13.ipynb) — Jupyter Notebook (with cell outputs & plots)
+- [`exp13/exp13.py`](exp13/exp13.py) — Python Script
+- [`exp13/uci_diabetes.csv`](exp13/uci_diabetes.csv) — UCI Diabetes Dataset
+- [`exp13/pima_diabetes.csv`](exp13/pima_diabetes.csv) — Pima Indians Diabetes Dataset
+- [`exp13/anova_analysis.png`](exp13/anova_analysis.png) — One-Way ANOVA Boxplot Plot
+
+</details>
+
+---
+
+<details>
+<summary><strong>🔬 Experiment 14 — Linear Regression Diagnostics & Error Metrics</strong></summary>
+
+### 📌 Objective
+Perform comprehensive regression diagnostics calculating $R^2$, MSE, RMSE, MAE, and evaluating residual error distributions for model validation.
+
+### 🧩 Topics Covered
+
+| Section | Topic | Key Functions / Metrics |
+|:-------:|:------|:-----------------------|
+| 1 | Model Fitting | `LinearRegression().fit(X_train, y_train)` |
+| 2 | Error Metrics | `mean_squared_error`, `mean_absolute_error`, `np.sqrt(MSE)` |
+| 3 | Residual Diagnostics | Calculating residual errors $e_i = y_i - \hat{y}_i$ |
+| 4 | Diagnostic Plots | Residuals vs Fitted values scatter plot and Residual Error Distribution KDE |
+
+### 📂 Files
+- [`exp14/exp14.ipynb`](exp14/exp14.ipynb) — Jupyter Notebook (with cell outputs & plots)
+- [`exp14/exp14.py`](exp14/exp14.py) — Python Script
+- [`exp14/pima_diabetes.csv`](exp14/pima_diabetes.csv) — Pima Indians Diabetes Dataset
+- [`exp14/linear_model_fit.png`](exp14/linear_model_fit.png) — Model Regression Fit Plot
+- [`exp14/residuals_plot.png`](exp14/residuals_plot.png) — Residual Diagnostics Plots
+
+</details>
+
+---
+
+<details>
+<summary><strong>🔬 Experiment 15 — Classification Diagnostics & Logistic Regression</strong></summary>
+
+### 📌 Objective
+Train and evaluate a Logistic Regression classification model using a comprehensive diagnostic suite including Confusion Matrix, Precision, Recall, F1-Score, and ROC-AUC curve.
+
+### 🧩 Topics Covered
+
+| Section | Topic | Key Functions / Metrics |
+|:-------:|:------|:-----------------------|
+| 1 | Classification Training | `LogisticRegression(max_iter=1000).fit(X_train, y_train)` |
+| 2 | Diagnostic Metrics | `accuracy_score`, `precision_score`, `recall_score`, `f1_score` |
+| 3 | Confusion Matrix | `confusion_matrix(y_test, y_pred)` with heatmap visualization |
+| 4 | ROC-AUC Curve | `roc_curve`, `auc`, and Receiver Operating Characteristic curve plotting |
+
+### 📂 Files
+- [`exp15/exp15.ipynb`](exp15/exp15.ipynb) — Jupyter Notebook (with cell outputs & plots)
+- [`exp15/exp15.py`](exp15/exp15.py) — Python Script
+- [`exp15/pima_diabetes.csv`](exp15/pima_diabetes.csv) — Pima Indians Diabetes Dataset
+- [`exp15/confusion_matrix.png`](exp15/confusion_matrix.png) — Confusion Matrix Heatmap
+- [`exp15/roc_curve.png`](exp15/roc_curve.png) — ROC-AUC Diagnostic Curve
+
+</details>
+
+---
+
+<details>
+<summary><strong>🔬 Experiment 16 — Time Series Decomposition & ARIMA Forecasting</strong></summary>
+
+### 📌 Objective
+Perform temporal analysis on sequential patient records, decomposing underlying trend and seasonal patterns and training an ARIMA model for forward health forecasting.
+
+### 🧩 Topics Covered
+
+| Section | Topic | Key Functions / Metrics |
+|:-------:|:------|:-----------------------|
+| 1 | Time Series Structuring | Generating date indices and constructing pandas time series |
+| 2 | Classical Decomposition | `seasonal_decompose(model='additive', period=7)` |
+| 3 | ARIMA Modeling | `ARIMA(train, order=(1, 1, 1)).fit()` |
+| 4 | Forward Forecasting | Multi-step forecasting against hold-out test sequence |
+
+### 📂 Files
+- [`exp16/exp16.ipynb`](exp16/exp16.ipynb) — Jupyter Notebook (with cell outputs & plots)
+- [`exp16/exp16.py`](exp16/exp16.py) — Python Script
+- [`exp16/pima_diabetes.csv`](exp16/pima_diabetes.csv) — Pima Indians Diabetes Dataset
+- [`exp16/time_series_decomposition.png`](exp16/time_series_decomposition.png) — 4-Panel Decomposition Plot
+- [`exp16/arima_forecast.png`](exp16/arima_forecast.png) — ARIMA Forward Forecast Plot
 
 </details>
 
@@ -439,7 +600,7 @@ print("Accuracy Score:", accuracy_score(y_test, model_log.predict(X_test)))
 python --version
 
 # Install required packages
-pip install numpy pandas matplotlib seaborn scipy scikit-learn jupyterlab
+pip install numpy pandas matplotlib seaborn scipy scikit-learn statsmodels jupyterlab openpyxl
 ```
 
 ### Running Notebooks
@@ -456,9 +617,13 @@ jupyter lab
 ### Running Python Scripts
 
 ```bash
-# Example: Run Experiment 2
-cd exp2
-python exp3.py
+# Example: Run Experiment 8 (Multiple Linear Regression)
+cd exp8
+python exp8.py
+
+# Example: Run Experiment 15 (Logistic Regression Diagnostics)
+cd ../exp15
+python exp15.py
 ```
 
 ---
@@ -473,6 +638,9 @@ python exp3.py
 | 🔢 **NumPy** | Numerical computing & array operations |
 | 🐼 **Pandas** | Data manipulation & analysis |
 | 📈 **Matplotlib** | Data visualization & plotting |
+| 📊 **Seaborn** | Statistical graphics & distributions |
+| 🤖 **Scikit-Learn** | Machine learning & predictive modeling |
+| 📐 **SciPy & Statsmodels** | Advanced hypothesis testing & time series |
 | 📓 **Jupyter Lab** | Interactive notebook environment |
 
 </div>
@@ -483,17 +651,17 @@ python exp3.py
 
 ```
  ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
- │   Exp 1      │     │   Exp 2      │     │   Exp 3      │
- │ Environment  │────▶│   NumPy      │────▶│   Pandas     │──▶ ...
- │   Setup      │     │ Fundamentals │     │  Analysis    │
+ │   Exp 1-4    │     │   Exp 5-7    │     │   Exp 8-16   │
+ │ Fundamentals │────▶│ Descriptive  │────▶│ Advanced ML, │
+ │  & I/O Ops   │     │ & Regression │     │Stats & Series│
  └──────────────┘     └──────────────┘     └──────────────┘
 ```
 
 > [!NOTE]
-> Each experiment builds upon concepts from the previous one. It is recommended to follow the experiments in order.
+> Each experiment builds upon concepts from the previous one. It is recommended to follow the experiments in order from 1 to 16.
 
 > [!TIP]
-> All notebooks include pre-rendered cell outputs so you can review results without running the code.
+> All notebooks include pre-rendered cell outputs and high-resolution visualizations so you can review results without needing to re-run execution cells.
 
 ---
 
@@ -504,4 +672,3 @@ python exp3.py
 Made with ❤️ for **Data Analysis & Visualization Lab**
 
 </div>
-"# DAV_LAB" 
