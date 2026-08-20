@@ -67,6 +67,74 @@ DAV_LAB/
 │   ├── 🖼️ uci_linear_regression.png ← UCI Linear Regression Scatter & Line Plot
 │   └── 🖼️ pima_linear_regression.png ← Pima Linear Regression Scatter & Line Plot
 │
+├── 📁 exp8/
+│   ├── 📊 uci_diabetes.csv         ← UCI Diabetes Dataset
+│   ├── 📊 pima_diabetes.csv        ← Pima Indians Diabetes Dataset
+│   ├── 📓 exp8.ipynb               ← Jupyter Notebook (with outputs)
+│   ├── 🐍 exp8.py                  ← Python Script
+│   ├── 🖼️ uci_multiple_regression.png  ← UCI Actual vs Predicted Scatter Plot
+│   └── 🖼️ pima_multiple_regression.png ← Pima Actual vs Predicted Scatter Plot
+│
+├── 📁 exp9/
+│   ├── 📊 uci_diabetes.csv         ← UCI Diabetes Dataset
+│   ├── 📊 pima_diabetes.csv        ← Pima Indians Diabetes Dataset
+│   ├── 📓 exp9.ipynb               ← Jupyter Notebook (with outputs)
+│   ├── 🐍 exp9.py                  ← Python Script
+│   └── 🖼️ model_comparison.png     ← Model Benchmark Comparative Bar Chart
+│
+├── 📁 exp10/
+│   ├── 📊 uci_diabetes.csv         ← UCI Diabetes Dataset
+│   ├── 📊 pima_diabetes.csv        ← Pima Indians Diabetes Dataset
+│   ├── 📓 exp10.ipynb              ← Jupyter Notebook (with outputs)
+│   ├── 🐍 exp10.py                 ← Python Script
+│   ├── 🖼️ normal_curve_glucose.png   ← Fitted Normal PDF on Glucose
+│   └── 🖼️ normal_curves_features.png ← Multi-Feature Fitted Normal Curves
+│
+├── 📁 exp11/
+│   ├── 📊 uci_diabetes.csv         ← UCI Diabetes Dataset
+│   ├── 📊 pima_diabetes.csv        ← Pima Indians Diabetes Dataset
+│   ├── 📓 exp11.ipynb              ← Jupyter Notebook (with outputs)
+│   ├── 🐍 exp11.py                 ← Python Script
+│   └── 🖼️ z_test_plot.png          ← Standard Normal Distribution & Critical Z Thresholds
+│
+├── 📁 exp12/
+│   ├── 📊 uci_diabetes.csv         ← UCI Diabetes Dataset
+│   ├── 📊 pima_diabetes.csv        ← Pima Indians Diabetes Dataset
+│   ├── 📓 exp12.ipynb              ← Jupyter Notebook (with outputs)
+│   ├── 🐍 exp12.py                 ← Python Script
+│   └── 🖼️ t_test_comparison.png    ← Independent Two-Sample T-Test Boxplots
+│
+├── 📁 exp13/
+│   ├── 📊 uci_diabetes.csv         ← UCI Diabetes Dataset
+│   ├── 📊 pima_diabetes.csv        ← Pima Indians Diabetes Dataset
+│   ├── 📓 exp13.ipynb              ← Jupyter Notebook (with outputs)
+│   ├── 🐍 exp13.py                 ← Python Script
+│   └── 🖼️ anova_analysis.png       ← One-Way ANOVA Boxplot Across Age Groups
+│
+├── 📁 exp14/
+│   ├── 📊 uci_diabetes.csv         ← UCI Diabetes Dataset
+│   ├── 📊 pima_diabetes.csv        ← Pima Indians Diabetes Dataset
+│   ├── 📓 exp14.ipynb              ← Jupyter Notebook (with outputs)
+│   ├── 🐍 exp14.py                 ← Python Script
+│   ├── 🖼️ linear_model_fit.png     ← Linear Model Regression Line Fit
+│   └── 🖼️ residuals_plot.png       ← Residual Error vs Fitted Values & Distribution
+│
+├── 📁 exp15/
+│   ├── 📊 uci_diabetes.csv         ← UCI Diabetes Dataset
+│   ├── 📊 pima_diabetes.csv        ← Pima Indians Diabetes Dataset
+│   ├── 📓 exp15.ipynb              ← Jupyter Notebook (with outputs)
+│   ├── 🐍 exp15.py                 ← Python Script
+│   ├── 🖼️ confusion_matrix.png     ← Classification Confusion Matrix Heatmap
+│   └── 🖼️ roc_curve.png            ← Receiver Operating Characteristic (ROC) Curve
+│
+├── 📁 exp16/
+│   ├── 📊 uci_diabetes.csv         ← UCI Diabetes Dataset
+│   ├── 📊 pima_diabetes.csv        ← Pima Indians Diabetes Dataset
+│   ├── 📓 exp16.ipynb              ← Jupyter Notebook (with outputs)
+│   ├── 🐍 exp16.py                 ← Python Script
+│   ├── 🖼️ time_series_decomposition.png ← Trend, Seasonal & Residual Decomposition
+│   └── 🖼️ arima_forecast.png       ← ARIMA Multi-Step Forward Forecasting Plot
+│
 └── 📄 README.md
 ```
 
