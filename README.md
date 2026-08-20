@@ -607,7 +607,8 @@ pip install numpy pandas matplotlib seaborn scipy scikit-learn statsmodels jupyt
 
 ```bash
 # Clone the repository
-git clone https://github.com/Aadhish23/DAV_LAB.git
+git clone https://github.com/ALVIN-200
+/DAV_LAB.git
 cd DAV_LAB
 
 # Launch Jupyter Lab
